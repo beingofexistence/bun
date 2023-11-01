@@ -6,7 +6,7 @@
 # TODO: move this file to reduce confusion
 ARG DEBIAN_FRONTEND=noninteractive
 ARG GITHUB_WORKSPACE=/build
-ARG WEBKIT_DIR=${GITHUB_WORKSPACE}/bun-webkit 
+ARG WEBKIT_DIR=${GITHUB_WORKSPACE}/bun-webkit
 ARG BUN_RELEASE_DIR=${GITHUB_WORKSPACE}/bun-release
 ARG BUN_DEPS_OUT_DIR=${GITHUB_WORKSPACE}/bun-deps
 ARG BUN_DIR=${GITHUB_WORKSPACE}/bun
@@ -207,7 +207,7 @@ ARG CPU_TARGET
 ENV CPU_TARGET=${CPU_TARGET}
 ENV CCACHE_DIR=/ccache
 
-RUN install_packages autoconf automake libtool pkg-config 
+RUN install_packages autoconf automake libtool pkg-config
 
 COPY Makefile ${BUN_DIR}/Makefile
 COPY src/deps/libarchive ${BUN_DIR}/src/deps/libarchive
@@ -436,3 +436,5 @@ RUN cmake .. \
 FROM scratch as artifact
 
 COPY --from=bun-link /build/out /
+
+
